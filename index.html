@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>LATE info</title>
+
+<!-- 폰트 선택:
+     기본: 시스템 산세리프. Google Font 사용하려면 아래 주석 해제 후 family 바꾸기.
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"> 
+-->
+<style>
+:root{
+  --bg:#417cc5;      /* 단색 푸른색 배경, 필요시 HEX 교체 */
+  --fg:#00ff15;
+  --accent:#cfe6ff;  /* 링크/보조 색 */
+  --maxw: 720px;      /* 데스크탑에서의 640px 제한 폭 */
+}
+
+/* 전체 레이아웃: 모바일 우선, 세로 스크롤 */
+*{box-sizing:border-box}
+html,body{
+  margin:0;
+  min-height:100%;
+  text-shadow:
+    0 0 3px rgba(255,255,255,0.2),
+    0 0 5px rgba(255,255,255,0.2),
+    0 0 10px rgba(255,255,255,0.1);
+}
+
+body {
+  margin:0;
+  background: linear-gradient(170deg,
+  #1077ff 0%,
+  #16007a 100%);
+  color:#fff;
+  position: relative;
+  overflow-x:hidden;
+}
+
+body::before {
+  content:"";
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(3px) ;
+  pointer-events:none;
+
+  /* 위 20% → 점점 사라짐 → 가운데 60% 없음 → 다시 나타남 → 아래 20% */
+  -webkit-mask-image: linear-gradient(to bottom,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,1) 15%,
+    rgba(0,0,0,0) 25%,
+    rgba(0,0,0,0) 75%,
+    rgba(0,0,0,1) 85%,
+    rgba(0,0,0,1) 100%);
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-size:100% 100%;
+
+  mask-image: linear-gradient(to bottom,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,1) 15%,
+    rgba(0,0,0,0) 25%,
+    rgba(0,0,0,0) 75%,
+    rgba(0,0,0,1) 85%,
+    rgba(0,0,0,1) 100%);
+  mask-repeat:no-repeat;
+  mask-size:100% 100%;
+}
+
+
+/* 중앙 컨텐츠, 모바일 기준 가득 너비, 데스크탑은 중앙 정렬 */
+.container{
+  width:100%;
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:28px 20px;
+}
+
+/* 타이포그래피 (볼드 중심) */
+.title{
+  font-weight:700;
+  letter-spacing:-0.02em;
+  font-size:clamp(140px,20vw,190px); /* 모바일 우선으로 큼직하게 */
+  margin:100px 0 54px 0;
+  word-break:keep-all;
+}
+
+.links{
+  display:flex;
+  gap:10px;
+  flex-direction:column;
+  margin-bottom:18px;
+}
+
+.link-btn{
+  display:block;
+  text-decoration:underline;
+  background:transparent;
+
+  /*
+  border:2px solid var(--fg);
+  border-radius:8px;*/
+  
+  color:var(--fg);
+  padding:12px;
+  font-weight:700;
+  text-align:right;
+  
+  font-size:26px;
+  word-break:break-all;
+}
+
+
+.link-btn:visited {
+  color: #ffee00;
+  text-shadow: none;
+}
+
+a {
+  text-decoration: underline;
+  color: var(--fg);
+}
+
+a:visited {
+  color: #ffee00;
+  text-shadow: none;
+}
+
+
+/* 참여자 리스트: 각 항목 간격 강조, 간결한 레이아웃 */
+.team{
+  margin-top:12px;
+}
+
+.person{
+  padding:12px;
+  /*background:rgba(255,255,255,0.03);
+  border-radius:8px;*/
+  margin-bottom:10px;
+}
+
+.person .name{
+  font-weight:800;
+  font-size:52px;
+  margin-bottom:6px;
+}
+
+/*
+.person .center{
+  text-align: center;
+}
+  */
+
+.person .right{
+  text-align: right;
+}
+
+.person .desc{
+  font-weight:400;
+  font-size:14px;
+  color:rgba(255,255,255,0.92);
+  white-space:pre-wrap;
+}
+
+/* 추가 정보 섹션 */
+.extra{
+  margin-top:18px;
+  padding:12px;
+  font-size:12.5px;
+  /*background:rgba(255,255,255,0.02);*/
+  border-radius:8px;
+  color:rgba(255,255,255,0.95);
+}
+
+/* 터치 타깃 확보 */
+@media (min-width:420px){
+  .links{flex-direction:column}
+  .link-btn{flex:1}
+}
+</style>
+</head>
+<body>
+<main class="container" role="main" aria-labelledby="proj-title">
+  <h1 id="proj-title" class="title">LATE</h1>
+
+  <section class="team" aria-label="참여자 목록">
+
+    <article class="person">
+      <div class="name right">2025-10-26 EVENT</div>
+      <div class="desc right">Listening Session ; 18:00 - 18:50</div>
+      <div class="desc right">Show ; 19:00 - 22:00</div>
+      <div class="desc right"><a href="https://www.youtube.com/">자세한 정보</a></div>
+    </article>
+
+    <!-- 13명 항목: 이름과 짧은 소개를 각자 교체 -->
+    <article class="person">
+      <div class="name">chedpahc</div>
+      <div class="desc">짧은 소개 1. (역할 / 한 줄 설명)</div>
+    </article>
+
+    <article class="person">
+      <div class="name">Guinneissik</div>
+      <div class="desc">기나이직은 빠르고 가득 찬, 때로는 서정적이고 발칙한 사운드의 일렉트로닉 음악을 만든다. 근래에는 공연 도중에 10m USB 케이블과 마이크를 들고 무대를 뛰쳐나가기도 한다.
+      <div class="desc"><a href="https://www.instagram.com/guinneissik">인스타그램</a></div>
+</div>
+    </article>
+
+    <article class="person">
+      <div class="name">박찬영</div>
+      <div class="desc">짧은 소개 3.</div>
+      <div class="desc"><a href="https://www.google.com/">짧은 소개 3.</a></div>
+    </article>
+
+    <article class="person">
+      <div class="name">runghwa</div>
+      <div class="desc">짧은 소개 4.</div>
+    </article>
+
+    <article class="person">
+      <div class="name">장민규</div>
+      <div class="desc">짧은 소개 5.</div>
+    </article>
+
+    <article class="person">
+      <div class="name">G-UHONG</div>
+      <div class="desc">짧은 소개 6.</div>
+    </article>
+
+    <article class="person">
+      <div class="name">XSGIRL</div>
+      <div class="desc">짧은 소개 7.</div>
+    </article>
+
+    <article class="person">
+      <div class="name">Dillon Bastan</div>
+      <div class="desc">짧은 소개 8.</div>
+    </article>
+
+    <article class="person">
+      <div class="name">김수장</div>
+      <div class="desc">짧은 소개 9.</div>
+    </article>
+
+    <article class="person">
+      <div class="name">이상수</div>
+      <div class="desc">짧은 소개 10.</div>
+    </article>
+
+    <article class="person">
+      <div class="name">Ondea</div>
+      <div class="desc">짧은 소개 11.</div>
+    </article>
+
+    <article class="person">
+      <div class="name">ionne</div>
+      <div class="desc">짧은 소개 12.</div>
+    </article>
+
+    <article class="person">
+      <div class="name">melies</div>
+      <div class="desc">짧은 소개 13.</div>
+    </article>
+
+    <article class="person right">
+      <div class="title right">Listen LATE on ; </div>
+      <a class="link-btn" href="https://example.com/link1" target="_blank" rel="noopener noreferrer">Bandcamp</a>
+      <a class="link-btn" href="https://example.com/link2" target="_blank" rel="noopener noreferrer">Streaming</a>
+    </article>
+  </section>
+<!--
+  <nav class="links" aria-label="프로젝트 링크">    
+    <a class="link-btn" href="https://example.com/link1" target="_blank" rel="noopener noreferrer">Bandcamp</a>
+    <a class="link-btn" href="https://example.com/link2" target="_blank" rel="noopener noreferrer">Streaming</a>
+  </nav>
+  -->
+
+  <section class="extra" aria-label="추가 정보">
+    2025 all rights reserved.
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    LATE
+  </section>
+</main>
+</body>
+</html>
