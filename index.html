@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>LATE info</title>
+<title>LATE; info</title>
 
 <!-- 폰트 선택:
      기본: 시스템 산세리프. Google Font 사용하려면 아래 주석 해제 후 family 바꾸기.
@@ -13,7 +13,7 @@
 :root{
   --bg:#417cc5;      /* 단색 푸른색 배경, 필요시 HEX 교체 */
   --fg:#00ff15;
-  --accent:#cfe6ff;  /* 링크/보조 색 */
+  --accent:#ffffff;  /* 링크/보조 색 */
   --maxw: 720px;      /* 데스크탑에서의 640px 제한 폭 */
 }
 
@@ -23,9 +23,7 @@ html,body{
   margin:0;
   min-height:100%;
   text-shadow:
-    0 0 3px rgba(255,255,255,0.2),
-    0 0 5px rgba(255,255,255,0.2),
-    0 0 10px rgba(255,255,255,0.1);
+    0 0 50px rgba(255,255,255,0.1);
 }
 
 body {
@@ -33,36 +31,44 @@ body {
   background: linear-gradient(170deg,
   #1077ff 0%,
   #16007a 100%);
-  color:#fff;
+  color:#fdfdfd;
   position: relative;
   overflow-x:hidden;
+
+  /*
+  background: url("bg.jpg") no-repeat center top;
+  background-size: cover;
+  background-attachment: scroll; 
+  background-blend-mode: soft-light;
+  */
 }
 
 body::before {
   content:"";
   position:fixed;
   top:0;left:0;right:0;bottom:0;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(3px) ;
+  backdrop-filter: blur(4px);
+
+  -webkit-backdrop-filter: blur(4px) ;
   pointer-events:none;
 
   /* 위 20% → 점점 사라짐 → 가운데 60% 없음 → 다시 나타남 → 아래 20% */
   -webkit-mask-image: linear-gradient(to bottom,
     rgba(0,0,0,1) 0%,
-    rgba(0,0,0,1) 15%,
-    rgba(0,0,0,0) 25%,
-    rgba(0,0,0,0) 75%,
-    rgba(0,0,0,1) 85%,
+    rgba(0,0,0,0.7) 20%,
+    rgba(0,0,0,0) 40%,
+    rgba(0,0,0,0) 60%,
+    rgba(0,0,0,0.7) 80%,
     rgba(0,0,0,1) 100%);
   -webkit-mask-repeat:no-repeat;
   -webkit-mask-size:100% 100%;
 
   mask-image: linear-gradient(to bottom,
     rgba(0,0,0,1) 0%,
-    rgba(0,0,0,1) 15%,
-    rgba(0,0,0,0) 25%,
-    rgba(0,0,0,0) 75%,
-    rgba(0,0,0,1) 85%,
+    rgba(0,0,0,0.7) 20%,
+    rgba(0,0,0,0) 40%,
+    rgba(0,0,0,0) 60%,
+    rgba(0,0,0,0.7) 80%,
     rgba(0,0,0,1) 100%);
   mask-repeat:no-repeat;
   mask-size:100% 100%;
@@ -82,8 +88,9 @@ body::before {
   font-weight:700;
   letter-spacing:-0.02em;
   font-size:clamp(140px,20vw,190px); /* 모바일 우선으로 큼직하게 */
-  margin:100px 0 54px 0;
+  margin:150px 0 54px 0;
   word-break:keep-all;
+  line-height: 1;
 }
 
 .links{
@@ -146,11 +153,11 @@ a:visited {
   margin-bottom:6px;
 }
 
-/*
+
 .person .center{
   text-align: center;
 }
-  */
+  
 
 .person .right{
   text-align: right;
@@ -161,6 +168,17 @@ a:visited {
   font-size:14px;
   color:rgba(255,255,255,0.92);
   white-space:pre-wrap;
+}
+
+.divider {
+  margin:0;
+  background: linear-gradient(90deg,
+  #1077ff 0%,
+  #16007a 100%);
+  color:#fdfdfd;
+  position: relative;
+  overflow-x:hidden;
+  border-radius: 4px;
 }
 
 /* 추가 정보 섹션 */
@@ -190,13 +208,21 @@ a:visited {
       <div class="name right">2025-10-26 EVENT</div>
       <div class="desc right">Listening Session ; 18:00 - 18:50</div>
       <div class="desc right">Show ; 19:00 - 22:00</div>
-      <div class="desc right"><a href="https://www.youtube.com/">자세한 정보</a></div>
+      <div class="desc right"><a href="https://www.instagram.com/chedpahc" target="_blank" rel="noopener noreferrer">자세한 정보</a></div>
+      <br></br>
+      <div class="desc right">TIME</div>
+      <div class="desc right">Ondea 00:00-00:00</div>
+      <div class="desc right">ionne 00:00-00:00</div>
+      <div class="desc right">XSGRIL 00:00-00:00</div>
+      <div class="desc right">Guinneissik 00:00-00:00</div>
     </article>
 
     <!-- 13명 항목: 이름과 짧은 소개를 각자 교체 -->
+
     <article class="person">
       <div class="name">chedpahc</div>
-      <div class="desc">짧은 소개 1. (역할 / 한 줄 설명)</div>
+      <div class="desc">전선과 코드를 엮어 디지털 사운드와 그래픽, 커스텀 하드웨어를 만든다.</div>
+      <div class="desc"><a href="https://www.chedpahc.com"  target="_blank" rel="noopener noreferrer">웹사이트</a></div>
     </article>
 
     <article class="person">
@@ -262,12 +288,67 @@ a:visited {
       <div class="desc">짧은 소개 13.</div>
     </article>
 
+    <!--
+    <article class="person divider">
+      <div class="desc left">↑음반에 참여</div>
+      <div class="desc right">이벤트 실행↓</div>
+    </article>
+    -->
+    <br></br>
+
+    <article class="person">
+      <div class="name right">TPYsystem</div>
+      <div class="desc right">이벤트 기획, 아트 디렉션, 설치와 제작</div>
+      <div class="desc right"><a href="https://www.instagram.com/tpy_system" target="_blank" rel="noopener noreferrer">인스타그램</a></div>
+    </article>
+
+    <article class="person">
+      <div class="name right">임강민</div>
+      <div class="desc right">커버 아트, 그래픽 디자인, 프로젝션과 모션 그래픽으로 참여</div>
+      <div class="desc right"><a href="https://www.instagram.com/yimkangmin" target="_blank" rel="noopener noreferrer">인스타그램</a></div>
+    </article>
+
     <article class="person right">
-      <div class="title right">Listen LATE on ; </div>
+      <div class="title right">Listen LATE on;</div>
       <a class="link-btn" href="https://example.com/link1" target="_blank" rel="noopener noreferrer">Bandcamp</a>
       <a class="link-btn" href="https://example.com/link2" target="_blank" rel="noopener noreferrer">Streaming</a>
     </article>
+
+    <br></br>
+    <br></br>
+
+    <article class="person">
+      <div class="name">TRACKLIST</div>
+      <br></br>
+      <div class="desc">01_PROPAGATE / chedpahc</div>
+      <div class="desc">02_LATE / chedpahc</div>
+      <div class="desc">03_SUPERLATE / chedpahc, Guinneissik</div>
+      <div class="desc">04_Sillybillyfeelingdizzyreallyneedstocounthisdownty / chedpahc, Park Chanyeong</div>
+      <div class="desc">05_축제인가요아뇨장례식입니다 / chedpahc, Runghwa</div>
+      <div class="desc">06_LATE^29 / chedpahc, Jang Mingyu</div>
+      <div class="desc">07_I'm never far from anything / chedpahc</div>
+      <div class="desc">08_BATE / chedpahc, G-UHONG</div>
+      <div class="desc">09_출력된 4랑...... / chedpahc, XSG1RL</div>
+      <div class="desc">10_Ceremonial celebration for cerebral implosion / chedpahc, Dillon Bastan</div>
+      <div class="desc">11_ATTENUATE / chedpahc</div>
+      <div class="desc">12_열폭주 / chedpahc, Choi Junhyeok</div>
+      <div class="desc">13_GATE / chedpahc, Lee Sangsu</div>
+      <div class="desc">14_Backdoor / chedpahc, Ondea</div>
+      <div class="desc">15_RATE / chedpahc</div>
+      <div class="desc">16_FATE / chedpahc</div>
+      <div class="desc">17_Maybe early / chedpahc, Dillon Bastan</div>
+      <div class="desc">18_RATE - IONNE Remix / chedpahc, IONNE</div>
+      <div class="desc">19_FATE - Ko Eunji Remix / chedpahc, Ko Eunji</div>
+      <div class="desc">Total 19 tracks, 56 min</div>
+
+    </article>
+
+    <br></br>
+    <br></br>
+
   </section>
+
+  
 <!--
   <nav class="links" aria-label="프로젝트 링크">    
     <a class="link-btn" href="https://example.com/link1" target="_blank" rel="noopener noreferrer">Bandcamp</a>
@@ -276,7 +357,10 @@ a:visited {
   -->
 
   <section class="extra" aria-label="추가 정보">
-    2025 all rights reserved.
+    website by chedpahc. 2025 all rights reserved.
+    <br></br>
+    <br></br>
+    <br></br>
     <br></br>
     <br></br>
     <br></br>
