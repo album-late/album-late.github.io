@@ -30,62 +30,59 @@
 
 html,body{
   margin:0;
-  min-height:100%;
+  min-height:100dvh;
 }
 
 body {
   margin:0;
   
   background: radial-gradient( circle,
-  #2cd8ff 0%,
-  #1b0092 100%);
+  #27bfe1ad 0%,
+  #0a0092 100%);
   
-  text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.4);
+  text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.5);
 
-  /*background: navy;*/
   color:#ffffff;
   position: relative;
   overflow-x:hidden;
-
+/*
   font-family: 'Paperozi', sans-serif;
-
-  /*
-  background: url("bg1.png") no-repeat center top;
+  background: url("bg.png") no-repeat center top;
   background-size: cover;
   background-attachment: scroll; 
 */
 }
 
+
 body::before {
   content:"";
   position:fixed;
-  top:0;left:0;right:0;bottom:0;
-  backdrop-filter: blur(4px);
-  filter: saturate(25%);
+  inset:0;
+  height: 100dvh;
 
-  -webkit-backdrop-filter: blur(4px) ;
+  backdrop-filter: blur(2px);
+  filter: saturate(93%);
+  -webkit-backdrop-filter: blur(2px) ;
   pointer-events:none;
-
-  /* 위 20% → 점점 사라짐 → 가운데 60% 없음 → 다시 나타남 → 아래 20% */
   -webkit-mask-image: linear-gradient(to bottom,
     rgba(0,0,0,1) 0%,
-    rgba(0,0,0,0.7) 10%,
-    rgba(0,0,0,0) 35%,
-    rgba(0,0,0,0) 65%,
-    rgba(0,0,0,0.7) 90%,
+    rgba(0,0,0,0.8) 10%,
+    rgba(0,0,0,0) 25%,
+    rgba(0,0,0,0) 75%,
+    rgba(0,0,0,0.8) 90%,
     rgba(0,0,0,1) 100%);
   -webkit-mask-repeat:no-repeat;
-  -webkit-mask-size:100% 100%;
+  -webkit-mask-size:100% 100dvh;
 
   mask-image: linear-gradient(to bottom,
     rgba(0,0,0,1) 0%,
-    rgba(0,0,0,0.7) 10%,
-    rgba(0,0,0,0) 35%,
-    rgba(0,0,0,0) 65%,
-    rgba(0,0,0,0.7) 90%,
+    rgba(0,0,0,0.8) 10%,
+    rgba(0,0,0,0) 25%,
+    rgba(0,0,0,0) 75%,
+    rgba(0,0,0,0.8) 90%,
     rgba(0,0,0,1) 100%);
   mask-repeat:no-repeat;
-  mask-size:100% 100%;
+  mask-size:100% 100dvh;
 }
 
 
@@ -101,8 +98,8 @@ body::before {
 .title{
   font-weight:700;
   letter-spacing:-0.02em;
-  font-size:clamp(130px,20vw,150px); /* 모바일 우선으로 큼직하게 */
-  margin:150px 0 64px 0;
+  font-size:clamp(110px,20vw,130px); /* 모바일 우선으로 큼직하게 */
+  margin:180px 0 64px 0;
   word-break:keep-all;
   line-height: 1;
 }
@@ -163,7 +160,7 @@ a:visited {
 
 .person .name{
   font-weight:800;
-  font-size:52px;
+  font-size:32px;
   margin-bottom:8px;
 }
 
@@ -216,14 +213,14 @@ a:visited {
 
   
 <main class="container" role="main" aria-labelledby="proj-title">
-  <h1 id="proj-title" class="title">LATE</h1>
+  <h1 id="proj-title" class="title">LATE ;;</h1>
 
   <section class="team" aria-label="참여자 목록">
 
     <article class="person">
-      <div class="name right">2025-10-26 EVENT</div>
-      <div class="desc right">Listening Session ; 18:00 - 18:50</div>
-      <div class="desc right">Show ; 19:00 - 22:00</div>
+      <div class="name right">2025-10-26 이벤트 </div>
+      <div class="desc right">음감회 ; 18:00 - 18:50</div>
+      <div class="desc right">공연 ; 19:00 - 22:00</div>
       <div class="desc right"><a href="https://www.instagram.com/chedpahc" target="_blank" rel="noopener noreferrer">자세한 정보</a></div>
       <br></br>
       <div class="desc right">TIME</div>
@@ -374,7 +371,7 @@ a:visited {
   -->
 
   <section class="extra" aria-label="추가 정보">
-    website by chedpahc. 2025 all rights reserved.
+    LATE web info. 2025 all rights reserved.
     <br></br>
     <br></br>
     <br></br>
