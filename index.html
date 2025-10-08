@@ -5,10 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>LATE; info</title>
 
-<!-- 폰트 선택:
-     기본: 시스템 산세리프. Google Font 사용하려면 아래 주석 해제 후 family 바꾸기.
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"> 
--->
+
 <style>
 :root{
   --bg:#417cc5;      /* 단색 푸른색 배경, 필요시 HEX 교체 */
@@ -17,30 +15,45 @@
   --maxw: 720px;      /* 데스크탑에서의 640px 제한 폭 */
 }
 
+@font-face { font-family: 'Paperozi'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-1Thin.woff2') format('woff2'); font-weight:100; font-display: swap; }
+@font-face { font-family: 'Paperozi'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-2ExtraLight.woff2') format('woff2'); font-weight:200; font-display: swap; }
+@font-face { font-family: 'Paperozi'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-3Light.woff2') format('woff2'); font-weight:300; font-display: swap; }
+@font-face { font-family: 'Paperozi'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-4Regular.woff2') format('woff2'); font-weight:400; font-display: swap; }
+@font-face { font-family: 'Paperozi'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-5Medium.woff2') format('woff2'); font-weight:500; font-display: swap; }
+@font-face { font-family: 'Paperozi'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-6SemiBold.woff2') format('woff2'); font-weight:600; font-display: swap; }
+@font-face { font-family: 'Paperozi'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-7Bold.woff2') format('woff2'); font-weight:700; font-display: swap; }
+@font-face { font-family: 'Paperozi'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2'); font-weight:800; font-display: swap; }
+@font-face { font-family: 'Paperozi'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-9Black.woff2') format('woff2'); font-weight:900; font-display: swap; }
+
 /* 전체 레이아웃: 모바일 우선, 세로 스크롤 */
 *{box-sizing:border-box}
+
 html,body{
   margin:0;
   min-height:100%;
-  text-shadow:
-    0 0 50px rgba(255,255,255,0.1);
 }
 
 body {
   margin:0;
-  background: linear-gradient(170deg,
-  #1077ff 0%,
-  #16007a 100%);
-  color:#fdfdfd;
+  
+  background: radial-gradient( circle,
+  #2cd8ff 0%,
+  #1b0092 100%);
+  
+  text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.4);
+
+  /*background: navy;*/
+  color:#ffffff;
   position: relative;
   overflow-x:hidden;
 
+  font-family: 'Paperozi', sans-serif;
+
   /*
-  background: url("bg.jpg") no-repeat center top;
+  background: url("bg1.png") no-repeat center top;
   background-size: cover;
   background-attachment: scroll; 
-  background-blend-mode: soft-light;
-  */
+*/
 }
 
 body::before {
@@ -48,6 +61,7 @@ body::before {
   position:fixed;
   top:0;left:0;right:0;bottom:0;
   backdrop-filter: blur(4px);
+  filter: saturate(25%);
 
   -webkit-backdrop-filter: blur(4px) ;
   pointer-events:none;
@@ -55,20 +69,20 @@ body::before {
   /* 위 20% → 점점 사라짐 → 가운데 60% 없음 → 다시 나타남 → 아래 20% */
   -webkit-mask-image: linear-gradient(to bottom,
     rgba(0,0,0,1) 0%,
-    rgba(0,0,0,0.7) 20%,
-    rgba(0,0,0,0) 40%,
-    rgba(0,0,0,0) 60%,
-    rgba(0,0,0,0.7) 80%,
+    rgba(0,0,0,0.7) 10%,
+    rgba(0,0,0,0) 35%,
+    rgba(0,0,0,0) 65%,
+    rgba(0,0,0,0.7) 90%,
     rgba(0,0,0,1) 100%);
   -webkit-mask-repeat:no-repeat;
   -webkit-mask-size:100% 100%;
 
   mask-image: linear-gradient(to bottom,
     rgba(0,0,0,1) 0%,
-    rgba(0,0,0,0.7) 20%,
-    rgba(0,0,0,0) 40%,
-    rgba(0,0,0,0) 60%,
-    rgba(0,0,0,0.7) 80%,
+    rgba(0,0,0,0.7) 10%,
+    rgba(0,0,0,0) 35%,
+    rgba(0,0,0,0) 65%,
+    rgba(0,0,0,0.7) 90%,
     rgba(0,0,0,1) 100%);
   mask-repeat:no-repeat;
   mask-size:100% 100%;
@@ -87,8 +101,8 @@ body::before {
 .title{
   font-weight:700;
   letter-spacing:-0.02em;
-  font-size:clamp(140px,20vw,190px); /* 모바일 우선으로 큼직하게 */
-  margin:150px 0 54px 0;
+  font-size:clamp(130px,20vw,150px); /* 모바일 우선으로 큼직하게 */
+  margin:150px 0 64px 0;
   word-break:keep-all;
   line-height: 1;
 }
@@ -150,7 +164,7 @@ a:visited {
 .person .name{
   font-weight:800;
   font-size:52px;
-  margin-bottom:6px;
+  margin-bottom:8px;
 }
 
 
@@ -199,6 +213,8 @@ a:visited {
 </style>
 </head>
 <body>
+
+  
 <main class="container" role="main" aria-labelledby="proj-title">
   <h1 id="proj-title" class="title">LATE</h1>
 
@@ -211,10 +227,11 @@ a:visited {
       <div class="desc right"><a href="https://www.instagram.com/chedpahc" target="_blank" rel="noopener noreferrer">자세한 정보</a></div>
       <br></br>
       <div class="desc right">TIME</div>
-      <div class="desc right">Ondea 00:00-00:00</div>
-      <div class="desc right">ionne 00:00-00:00</div>
-      <div class="desc right">XSGRIL 00:00-00:00</div>
-      <div class="desc right">Guinneissik 00:00-00:00</div>
+      <div class="desc right">Ondea 19:00</div>
+      <div class="desc right">ionne 19:50</div>
+      <div class="desc right">XSGRIL 20:30</div>
+      <div class="desc right">Guinneissik 21:10</div>
+      <br></br>
     </article>
 
     <!-- 13명 항목: 이름과 짧은 소개를 각자 교체 -->
