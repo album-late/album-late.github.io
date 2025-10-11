@@ -5,383 +5,250 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>LATE; info</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
 <style>
 :root{
-  --bg:#417cc5;      /* 단색 푸른색 배경, 필요시 HEX 교체 */
-  --fg:#00ff15;
-  --accent:#ffffff;  /* 링크/보조 색 */
-  --maxw: 720px;      /* 데스크탑에서의 640px 제한 폭 */
+  --bg:#004394;
+  --fg:#0084ff;
+  --accent:#ffe600;
+  --maxw:640px;
 }
-
-@font-face { font-family: 'Paperozi'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-1Thin.woff2') format('woff2'); font-weight:100; font-display: swap; }
-@font-face { font-family: 'Paperozi'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-2ExtraLight.woff2') format('woff2'); font-weight:200; font-display: swap; }
-@font-face { font-family: 'Paperozi'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-3Light.woff2') format('woff2'); font-weight:300; font-display: swap; }
-@font-face { font-family: 'Paperozi'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-4Regular.woff2') format('woff2'); font-weight:400; font-display: swap; }
-@font-face { font-family: 'Paperozi'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-5Medium.woff2') format('woff2'); font-weight:500; font-display: swap; }
-@font-face { font-family: 'Paperozi'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-6SemiBold.woff2') format('woff2'); font-weight:600; font-display: swap; }
-@font-face { font-family: 'Paperozi'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-7Bold.woff2') format('woff2'); font-weight:700; font-display: swap; }
-@font-face { font-family: 'Paperozi'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2'); font-weight:800; font-display: swap; }
-@font-face { font-family: 'Paperozi'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-9Black.woff2') format('woff2'); font-weight:900; font-display: swap; }
-
-/* 전체 레이아웃: 모바일 우선, 세로 스크롤 */
-*{box-sizing:border-box}
-
-html,body{
-  margin:0;
-  min-height:100dvh;
-}
-
 body {
-  margin:0;
-  
-  background: radial-gradient( circle,
-  #27bfe1ad 0%,
-  #0a0092 100%);
-  
-  text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.5);
+  min-height: 100dvh;
+  margin: 0;
+  padding: 10%;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 300;
+  color: #4d4d4d;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
 
-  color:#ffffff;
-  position: relative;
-  overflow-x:hidden;
-
-  font-family: 'Paperozi', sans-serif;
-/*
-  background: url("bg.png") no-repeat center top;
+  letter-spacing: 0.4em;
+  line-height: 1.4;
+  overflow-x: hidden;
+    
+  background-image: url('bg.jpg');
+  background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: scroll; 
-*/
+  background-position: center;
+
 }
 
-
-body::before {
-  content:"";
-  position:fixed;
-  inset:0;
-  height: 100dvh;
-
-  backdrop-filter: blur(2px);
-  filter: saturate(93%);
-  -webkit-backdrop-filter: blur(2px) ;
-  pointer-events:none;
-  -webkit-mask-image: linear-gradient(to bottom,
-    rgba(0,0,0,1) 0%,
-    rgba(0,0,0,0.8) 10%,
-    rgba(0,0,0,0) 25%,
-    rgba(0,0,0,0) 75%,
-    rgba(0,0,0,0.8) 90%,
-    rgba(0,0,0,1) 100%);
-  -webkit-mask-repeat:no-repeat;
-  -webkit-mask-size:100% 100dvh;
-
-  mask-image: linear-gradient(to bottom,
-    rgba(0,0,0,1) 0%,
-    rgba(0,0,0,0.8) 10%,
-    rgba(0,0,0,0) 25%,
-    rgba(0,0,0,0) 75%,
-    rgba(0,0,0,0.8) 90%,
-    rgba(0,0,0,1) 100%);
-  mask-repeat:no-repeat;
-  mask-size:100% 100dvh;
-}
-
-
-/* 중앙 컨텐츠, 모바일 기준 가득 너비, 데스크탑은 중앙 정렬 */
 .container{
-  width:100%;
-  max-width:var(--maxw);
-  margin:0 auto;
-  padding:28px 20px;
+  width: 100%;
+  max-width: 640px;
+  margin: auto;
 }
 
-/* 타이포그래피 (볼드 중심) */
 .title{
-  font-weight:700;
-  letter-spacing:-0.02em;
-  font-size:clamp(110px,20vw,130px); /* 모바일 우선으로 큼직하게 */
-  margin:180px 0 64px 0;
-  word-break:keep-all;
-  line-height: 1;
+  writing-mode: vertical-lr;
+  text-orientation: sideways;
+  font-size: clamp(100px, 15rem, 270px);
+  margin: 10dvh 0;
+  white-space: nowrap;
+  overflow-x: auto;
+  margin-bottom: 18rem;
 }
 
-.links{
-  display:flex;
-  gap:10px;
-  flex-direction:column;
-  margin-bottom:18px;
-}
-
-.link-btn{
-  display:block;
-  text-decoration:underline;
-  background:transparent;
-
-  /*
-  border:2px solid var(--fg);
-  border-radius:8px;*/
-  
-  color:var(--fg);
-  padding:12px;
-  font-weight:700;
-  text-align:right;
-  
-  font-size:26px;
-  word-break:break-all;
-}
-
-
-.link-btn:visited {
-  color: #ffee00;
-  text-shadow: none;
-}
-
-a {
-  text-decoration: underline;
-  color: var(--fg);
-}
-
-a:visited {
-  color: #ffee00;
-  text-shadow: none;
-}
-
-
-/* 참여자 리스트: 각 항목 간격 강조, 간결한 레이아웃 */
-.team{
-  margin-top:12px;
+.title_second{
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-size: 90px;
+  margin: 40dvh 0;
+  letter-spacing: 5rem;
+  line-height: 6rem;
+  overflow-x: auto;
+  margin-bottom: 10rem;
 }
 
 .person{
-  padding:12px;
-  /*background:rgba(255,255,255,0.03);
-  border-radius:8px;*/
-  margin-bottom:10px;
+  margin-bottom: 10rem;
 }
 
-.person .name{
-  font-weight:800;
-  font-size:32px;
-  margin-bottom:8px;
+.name{
+  font-size: clamp(24px, 6vw, 60px);
+  word-break: break-word;
 }
 
+.desc{
+  margin-top: 0.25em;
+  font-size: clamp(16px, 4vw, 24px);
+  word-break: break-word;
+}
 
-.person .center{
+.right{ text-align: right; }
+
+.links{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  margin-bottom: 5em;
+}
+
+.link-btn{
+  display: block;
+  text-decoration: underline;
+  background: transparent;
+  color: #0084ff;
+  padding: 1rem;
   text-align: center;
-}
-  
-
-.person .right{
-  text-align: right;
+  font-size: clamp(24px, 20vw, 36px);
+  word-break: break-word;
 }
 
-.person .desc{
-  font-weight:400;
-  font-size:14px;
-  color:rgba(255,255,255,0.92);
-  white-space:pre-wrap;
+.extra {
+  font-size: x-small;
 }
 
-.divider {
-  margin:0;
-  background: linear-gradient(90deg,
-  #1077ff 0%,
-  #16007a 100%);
-  color:#fdfdfd;
-  position: relative;
-  overflow-x:hidden;
-  border-radius: 4px;
-}
+a{ text-decoration: underline; color: #0084ff; }
+a:visited{ color: #ffe600; }
 
-/* 추가 정보 섹션 */
-.extra{
-  margin-top:18px;
-  padding:12px;
-  font-size:12.5px;
-  /*background:rgba(255,255,255,0.02);*/
-  border-radius:8px;
-  color:rgba(255,255,255,0.95);
-}
-
-/* 터치 타깃 확보 */
 @media (min-width:420px){
-  .links{flex-direction:column}
-  .link-btn{flex:1}
+  .links{ flex-direction: column; }
+  .link-btn{ flex: 1; }
 }
+
 </style>
 </head>
 <body>
+<main class="container">
+  <article class="title">LATE ;</article>
 
-  
-<main class="container" role="main" aria-labelledby="proj-title">
-  <h1 id="proj-title" class="title">LATE ;;</h1>
-
-  <section class="team" aria-label="참여자 목록">
+  <section class="team">
 
     <article class="person">
-      <div class="name right">2025-10-26 이벤트 </div>
-      <div class="desc right">음감회 ; 18:00 - 18:50</div>
-      <div class="desc right">공연 ; 19:00 - 22:00</div>
-      <div class="desc right"><a href="https://www.instagram.com/chedpahc" target="_blank" rel="noopener noreferrer">자세한 정보</a></div>
-      <br></br>
-      <div class="desc right">TIME</div>
-      <div class="desc right">Ondea 19:00</div>
-      <div class="desc right">ionne 19:50</div>
-      <div class="desc right">XSGRIL 20:30</div>
-      <div class="desc right">Guinneissik 21:10</div>
-      <br></br>
-    </article>
-
-    <!-- 13명 항목: 이름과 짧은 소개를 각자 교체 -->
-
-    <article class="person">
-      <div class="name">chedpahc</div>
-      <div class="desc">전선과 코드를 엮어 디지털 사운드와 그래픽, 커스텀 하드웨어를 만든다.</div>
-      <div class="desc"><a href="https://www.chedpahc.com"  target="_blank" rel="noopener noreferrer">웹사이트</a></div>
+      <p class="name right">2025-10-26 이벤트</p>
+      <p class="desc right">음감회 ; 18:00 - 19:00</p>
+      <p class="desc right">Ondea - 19:10</p>
+      <p class="desc right">ionne - 19:50</p>
+      <p class="desc right">XSGRIL - 20:30</p>
+      <p class="desc right">Guinneissik - 21:10</p>
+      <p class="desc right"><a href="https://www.instagram.com/chedpahc">자세한 정보</a></p>
+      <br></br><br></br><br></br><br></br>
     </article>
 
     <article class="person">
-      <div class="name">Guinneissik</div>
-      <div class="desc">기나이직은 빠르고 가득 찬, 때로는 서정적이고 발칙한 사운드의 일렉트로닉 음악을 만든다. 근래에는 공연 도중에 10m USB 케이블과 마이크를 들고 무대를 뛰쳐나가기도 한다.
-      <div class="desc"><a href="https://www.instagram.com/guinneissik">인스타그램</a></div>
-</div>
+      <p class="name">chedpahc</p>
+      <p class="desc">전선과 코드를 엮어 디지털 사운드와 그래픽, 커스텀 하드웨어를 만든다.</p>
+      <p class="desc"><a href="https://www.chedpahc.com">웹사이트</a></p>
     </article>
 
     <article class="person">
-      <div class="name">박찬영</div>
-      <div class="desc">짧은 소개 3.</div>
-      <div class="desc"><a href="https://www.google.com/">짧은 소개 3.</a></div>
+      <p class="name">Guinneissik</p>
+      <p class="desc">기나이직은 빠르고 가득 찬, 때로는 서정적이고 발칙한 사운드의 일렉트로닉 음악을 만든다. 근래에는 공연 도중에 10m USB 케이블과 마이크를 들고 무대를 뛰쳐나가기도 한다.</p>
+      <p class="desc"><a href="https://www.instagram.com/guinneissik">인스타그램</a></p>
     </article>
 
     <article class="person">
-      <div class="name">runghwa</div>
-      <div class="desc">짧은 소개 4.</div>
+      <p class="name">박찬영</p>
+      <p class="desc">짧은 소개 3.</p>
+      <p class="desc"><a href="https://www.google.com/">관련</a></p>
     </article>
 
     <article class="person">
-      <div class="name">장민규</div>
-      <div class="desc">짧은 소개 5.</div>
+      <p class="name">runghwa</p>
+      <p class="desc">짧은 소개 4.</p>
     </article>
 
     <article class="person">
-      <div class="name">G-UHONG</div>
-      <div class="desc">짧은 소개 6.</div>
+      <p class="name">장민규</p>
+      <p class="desc">짧은 소개 5.</p>
     </article>
 
     <article class="person">
-      <div class="name">XSGIRL</div>
-      <div class="desc">짧은 소개 7.</div>
+      <p class="name">G-UHONG</p>
+      <p class="desc">짧은 소개 6.</p>
     </article>
 
     <article class="person">
-      <div class="name">Dillon Bastan</div>
-      <div class="desc">짧은 소개 8.</div>
+      <p class="name">XSGIRL</p>
+      <p class="desc">짧은 소개 7.</p>
     </article>
 
     <article class="person">
-      <div class="name">김수장</div>
-      <div class="desc">짧은 소개 9.</div>
+      <p class="name">Dillon Bastan</p>
+      <p class="desc">짧은 소개 8.</p>
     </article>
 
     <article class="person">
-      <div class="name">이상수</div>
-      <div class="desc">짧은 소개 10.</div>
+      <p class="name">김수장</p>
+      <p class="desc">짧은 소개 9.</p>
     </article>
 
     <article class="person">
-      <div class="name">Ondea</div>
-      <div class="desc">짧은 소개 11.</div>
+      <p class="name">이상수</p>
+      <p class="desc">짧은 소개 10.</p>
     </article>
 
     <article class="person">
-      <div class="name">ionne</div>
-      <div class="desc">짧은 소개 12.</div>
+      <p class="name">Ondea</p>
+      <p class="desc">짧은 소개 11.</p>
     </article>
 
     <article class="person">
-      <div class="name">melies</div>
-      <div class="desc">짧은 소개 13.</div>
-    </article>
-
-    <!--
-    <article class="person divider">
-      <div class="desc left">↑음반에 참여</div>
-      <div class="desc right">이벤트 실행↓</div>
-    </article>
-    -->
-    <br></br>
-
-    <article class="person">
-      <div class="name right">TPYsystem</div>
-      <div class="desc right">이벤트 기획, 아트 디렉션, 설치와 제작</div>
-      <div class="desc right"><a href="https://www.instagram.com/tpy_system" target="_blank" rel="noopener noreferrer">인스타그램</a></div>
+      <p class="name">ionne</p>
+      <p class="desc">짧은 소개 12.</p>
     </article>
 
     <article class="person">
-      <div class="name right">임강민</div>
-      <div class="desc right">커버 아트, 그래픽 디자인, 프로젝션과 모션 그래픽으로 참여</div>
-      <div class="desc right"><a href="https://www.instagram.com/yimkangmin" target="_blank" rel="noopener noreferrer">인스타그램</a></div>
+      <p class="name">melies</p>
+      <p class="desc">짧은 소개 13.</p>
+    </article>
+
+    <article class="person">
+      <p class="name right">TPYsystem</p>
+      <p class="desc right">이벤트 기획, 아트 디렉션, 설치와 제작</p>
+      <p class="desc right"><a href="https://www.instagram.com/tpy_system">인스타그램</a></p>
+    </article>
+
+    <article class="person">
+      <p class="name right">임강민</p>
+      <p class="desc right">커버 아트, 그래픽 디자인, 프로젝션과 모션 그래픽으로 참여</p>
+      <p class="desc right"><a href="https://www.instagram.com/yimkangmin">인스타그램</a></p>
     </article>
 
     <article class="person right">
-      <div class="title right">Listen LATE on;</div>
-      <a class="link-btn" href="https://example.com/link1" target="_blank" rel="noopener noreferrer">Bandcamp</a>
-      <a class="link-btn" href="https://example.com/link2" target="_blank" rel="noopener noreferrer">Streaming</a>
+      <p class="title_second right">Listen LATE on;</p>
+      <div class="links">
+        <a class="link-btn" href="https://example.com/link1">Bandcamp</a>
+        <a class="link-btn" href="https://example.com/link2">Streaming</a>
+      </div>
     </article>
-
-    <br></br>
-    <br></br>
 
     <article class="person">
-      <div class="name">TRACKLIST</div>
-      <br></br>
-      <div class="desc">01_PROPAGATE / chedpahc</div>
-      <div class="desc">02_LATE / chedpahc</div>
-      <div class="desc">03_SUPERLATE / chedpahc, Guinneissik</div>
-      <div class="desc">04_Sillybillyfeelingdizzyreallyneedstocounthisdownty / chedpahc, Park Chanyeong</div>
-      <div class="desc">05_축제인가요아뇨장례식입니다 / chedpahc, Runghwa</div>
-      <div class="desc">06_LATE^29 / chedpahc, Jang Mingyu</div>
-      <div class="desc">07_I'm never far from anything / chedpahc</div>
-      <div class="desc">08_BATE / chedpahc, G-UHONG</div>
-      <div class="desc">09_출력된 4랑...... / chedpahc, XSG1RL</div>
-      <div class="desc">10_Ceremonial celebration for cerebral implosion / chedpahc, Dillon Bastan</div>
-      <div class="desc">11_ATTENUATE / chedpahc</div>
-      <div class="desc">12_열폭주 / chedpahc, Choi Junhyeok</div>
-      <div class="desc">13_GATE / chedpahc, Lee Sangsu</div>
-      <div class="desc">14_Backdoor / chedpahc, Ondea</div>
-      <div class="desc">15_RATE / chedpahc</div>
-      <div class="desc">16_FATE / chedpahc</div>
-      <div class="desc">17_Maybe early / chedpahc, Dillon Bastan</div>
-      <div class="desc">18_RATE - IONNE Remix / chedpahc, IONNE</div>
-      <div class="desc">19_FATE - Ko Eunji Remix / chedpahc, Ko Eunji</div>
-      <div class="desc">Total 19 tracks, 56 min</div>
+      <p class="name">TRACKLIST</p>
+      <p class="desc tracklist">01_PROPAGATE / chedpahc</p>
+      <p class="desc tracklist">02_LATE / chedpahc</p>
+      <p class="desc tracklist">03_SUPERLATE / chedpahc, Guinneissik</p>
+      <p class="desc tracklist">04_Sillybillyfeelingdizzyreallyneedstocounthisdownty / chedpahc, Park Chanyeong</p>
+      <p class="desc tracklist">05_축제인가요아뇨장례식입니다 / chedpahc, Runghwa</p>
+      <p class="desc tracklist">06_LATE^29 / chedpahc, Jang Mingyu</p>
+      <p class="desc tracklist">07_I'm never far from anything / chedpahc</p>
+      <p class="desc tracklist">08_BATE / chedpahc, G-UHONG</p>
+      <p class="desc tracklist">09_출력된 4랑...... / chedpahc, XSG1RL</p>
+      <p class="desc tracklist">10_Ceremonial celebration for cerebral implosion / chedpahc, Dillon Bastan</p>
+      <p class="desc tracklist">11_ATTENUATE / chedpahc</p>
+      <p class="desc tracklist">12_열폭주 / chedpahc, Choi Junhyeok</p>
+      <p class="desc tracklist">13_GATE / chedpahc, Lee Sangsu</p>
+      <p class="desc tracklist">14_Backdoor / chedpahc, Ondea</p>
+      <p class="desc tracklist">15_RATE / chedpahc</p>
+      <p class="desc tracklist">16_FATE / chedpahc</p>
+      <p class="desc tracklist">17_Maybe early / chedpahc, Dillon Bastan</p>
+      <p class="desc tracklist">18_RATE - IONNE Remix / chedpahc, IONNE</p>
+      <p class="desc tracklist">19_FATE - Ko Eunji Remix / chedpahc, Ko Eunji</p>
 
+      <p class="desc">19 tracks, 56 min</p>
     </article>
-
-    <br></br>
-    <br></br>
 
   </section>
 
-  
-<!--
-  <nav class="links" aria-label="프로젝트 링크">    
-    <a class="link-btn" href="https://example.com/link1" target="_blank" rel="noopener noreferrer">Bandcamp</a>
-    <a class="link-btn" href="https://example.com/link2" target="_blank" rel="noopener noreferrer">Streaming</a>
-  </nav>
-  -->
-
-  <section class="extra" aria-label="추가 정보">
-    LATE web info. 2025 all rights reserved.
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    LATE
+  <section class="extra">
+    LATE web info by chedpahc. 2025 all rights reserved.<br></br>
+    LATE<br>
+    ATEL<br>
+    TELA<br>
+    ETAL
+    
   </section>
 </main>
 </body>
