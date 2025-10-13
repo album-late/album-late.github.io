@@ -7,16 +7,24 @@
 <title>LATE; info</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
+
 body {
   font-family: 'Pretendard';
   font-size: 1rem;
-  font-weight: 300;
-  letter-spacing:3rem;
+  font-weight: 200;
+
+  letter-spacing:0.5rem;
   line-height: 5rem;
   text-align: center;
-  margin: 1rem;
+  margin-left: 3rem;
+  margin-right: 3.3rem; /* 원하는 만큼 오른쪽 여백 */
   height: 100dvh;
   word-break: break-all;
+    
+  background-image: url('main.png');
+  background-size: cover;
+  background-repeat: repeat;
+
 }
 hr {
   margin: -1rem;
@@ -34,12 +42,17 @@ a:visited {
 p {
   margin: 0.5rem 0;
 }
+img {
+  filter: drop-shadow(0 0 30px rgb(224, 234, 240)) blur(2px) ;
+  transform: rotate(-3deg);
+  margin-top: 10dvh;
+  margin-bottom: 10dvh;
+}
 </style>
 </head>
 
 <body>
-<p>LATE;<p>
-
+<img src="logo.png" alt="메인 이미지" width="300px" height="700">
 
 <p>2025-10-26 이벤트</p>
 <p>음감회 18:00 - 19:00</p>
