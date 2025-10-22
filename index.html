@@ -259,6 +259,7 @@ total = 19 tracks, 56 min
 <br></br>
 <p>LATE web info by chedpahc. 2025</p>
 </section>
+
 <script>
 const wrap = document.getElementById('wrap');
 const bgEl = document.querySelector('.bg-img') || document.querySelector('.bg');
@@ -269,7 +270,8 @@ wrap.style.willChange = 'scroll-left';
 let velocity = 0;
 let ticking = false;
 const friction = 0.88;        // 감쇠율(작을수록 빨리 멈춤)
-const speedMultiplier = 0.2;  // 휠/터치 입력 민감도
+const speedMultiplier = 0.2;  // 휠 입력 민감도
+const touchVerticalFactor = 0.3; // 터치 수직->수평 변환 민감도
 const bgParallaxFactor = 0.9; // 배경 이동 비율 (조절)
 
 // 이미지 백그라운드용 변수
@@ -331,13 +333,12 @@ function rafLoop(){
   }
 }
 
-/* 휠 입력 */
+/* 휠 입력 (데스크탑) */
 wrap.addEventListener('wheel', function(e){
   if (Math.abs(e.deltaY) === 0) return;
   e.preventDefault();
 
   const raw = normalizeDelta(e);
-  // 델타에 직접 더하지 않고 velocity에 더해 모멘텀 생성
   velocity += raw * speedMultiplier;
 
   if (!ticking) {
@@ -346,18 +347,51 @@ wrap.addEventListener('wheel', function(e){
   }
 }, { passive: false });
 
-/* 터치 입력: 터치 이동을 velocity로 변환 */
+/* 터치 입력: 수직 스와이프를 좌우 이동으로 매핑 */
 let startX = 0;
+let startY = 0;
+let lockedAxis = null; // 'vertical' | 'horizontal' | null
+const AXIS_THRESHOLD = 6; // 픽셀 임계값
+
 wrap.addEventListener('touchstart', (e) => {
-  startX = e.touches[0].clientX;
+  const t = e.touches[0];
+  startX = t.clientX;
+  startY = t.clientY;
+  lockedAxis = null;
 }, { passive: true });
 
 wrap.addEventListener('touchmove', (e) => {
-  e.preventDefault();
-  const dx = startX - e.touches[0].clientX;
-  // 터치는 한 프레임에서 여러 이벤트가 올 수 있으니 적당히 스케일
-  velocity += dx * 0.6;
-  startX = e.touches[0].clientX;
+  const t = e.touches[0];
+  const dx = startX - t.clientX;
+  const dy = startY - t.clientY;
+
+  if (!lockedAxis) {
+    if (Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > AXIS_THRESHOLD) {
+      lockedAxis = 'vertical';
+    } else if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > AXIS_THRESHOLD) {
+      lockedAxis = 'horizontal';
+    } else {
+      // 아직 확실치 않으면 위치 갱신만 하고 리턴
+      startX = t.clientX;
+      startY = t.clientY;
+      return;
+    }
+  }
+
+  if (lockedAxis === 'vertical') {
+    // 수직 스와이프를 좌우 속도로 변환
+    e.preventDefault(); // 네이티브 수직 스크롤 방지
+    // dy 양수 -> 손가락 위로 이동 -> 오른쪽으로 이동 (velocity 증가)
+    velocity += dy * touchVerticalFactor;
+  } else if (lockedAxis === 'horizontal') {
+    // 기존처럼 수평 이동을 velocity로 변환
+    e.preventDefault();
+    velocity += dx * 0.6;
+  }
+
+  // 다음 프레임을 위해 시작점 갱신
+  startX = t.clientX;
+  startY = t.clientY;
 
   if (!ticking) {
     ticking = true;
@@ -365,19 +399,14 @@ wrap.addEventListener('touchmove', (e) => {
   }
 }, { passive: false });
 
-/* 키보드 이동: 즉시 약한 velocity 부여 */
-window.addEventListener('keydown', (e) => {
-  const step = window.innerWidth * 0.1;
-  if (e.key === 'ArrowRight') velocity += step;
-  if (e.key === 'ArrowLeft')  velocity -= step;
+wrap.addEventListener('touchend', () => {
+  lockedAxis = null;
+}, { passive: true });
 
-  if (!ticking) {
-    ticking = true;
-    requestAnimationFrame(rafLoop);
-  }
-});
+wrap.addEventListener('touchcancel', () => {
+  lockedAxis = null;
+}, { passive: true });
 </script>
-
 
 </body>
 </html>
