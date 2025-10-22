@@ -1,101 +1,184 @@
 <!doctype html>
 <html lang="ko">
-
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>LATE; info</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
-
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+}
 body {
   font-family: 'Pretendard';
+  font-variant-numeric: tabular-nums; /* 숫자 폭 통일 */
   font-size: 1rem;
-  font-weight: 200;
+  font-weight: 600;
+  letter-spacing:0.3rem;
+  line-height: 5ch;
 
-  letter-spacing:0.5rem;
-  line-height: 5rem;
-  text-align: center;
-  margin-left: 3rem;
-  margin-right: 3.3rem; /* 원하는 만큼 오른쪽 여백 */
   height: 100dvh;
   word-break: break-all;
-    
-  background-image: url('main.png');
+  background-color: rgb(90, 128, 255);
   background-size: cover;
   background-repeat: repeat;
+  color: white;
+  text-shadow: 0 0 2px white;
+  display: flex;
+  flex-wrap: nowrap;
+}
+section {
+  min-width: 100vw;
+  padding: 2rem;
+  box-sizing: border-box;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+}
 
+.text {
+  margin: 5rem;
 }
-hr {
-  margin: -1rem;
+
+.sectionimg {
+  min-width: 100vw;
+  height: 100vh; /* 화면 전체 높이 */
+  display: flex;
+  align-items: center;   /* 수직 중앙 */
+  justify-content: center; /* 수평 중앙 */
+  padding: 2rem;
+  box-sizing: border-box;
 }
+hr { margin: 0rem; }
 a {
-  color: blue;
-  text-decoration: underline;
+  color: lawngreen;
+  text-decoration: none;
+  text-shadow: none;
+  
 }
-a:hover {
-  cursor: pointer;
-}
-a:visited {
-  color: orange;
-}
-p {
-  margin: 0.5rem 0;
-}
+a:hover { cursor: pointer; }
+a:visited { color: rgb(255, 217, 0); }
+
 img {
-  filter: drop-shadow(0 0 30px rgb(224, 234, 240)) blur(2px) ;
+  filter: drop-shadow(0 0 30px rgb(224, 234, 240)) blur(0px);
   transform: rotate(-3deg);
   margin-top: 10dvh;
   margin-bottom: 10dvh;
 }
+
+
+.bfname {
+  font-size: 3.6rem;
+  text-orientation: sideways;
+}
+
+.name {
+  font-size: 1.6rem;
+  text-orientation: upright;
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+  section {
+    min-width: 100vw; /* 모바일에서는 화면 폭 채움 */
+  }
+}
+
+/* 데스크탑 */
+@media (min-width: 769px) {
+  section {
+    min-width: 10vw; /* 필요하면 원하는 비율로 조정 */
+  }
+}
 </style>
+
 </head>
-
-<body>
+<body id="wrap">
+<section class="sectionimg">
 <img src="logo.png" alt="메인 이미지" width="300px" height="700">
+</section>
 
-<p>2025-10-26 이벤트</p>
-<p>음감회 18:00 - 19:00</p>
-<p>Ondea 19:10</p>
-<p>ionne 19:50</p>
-<p>XSG1RL 20:30</p>
-<p>Guinneissik 21:10</p>
-<p><a href="https://www.instagram.com/chedpahc" target="_blank" rel="noopener noreferrer">자세한 정보</a></p>
+<section class="text">
+<p class="bfname">LATE ; PARTY</p>
 
-<hr>
+<p>18:00 ~ 음감회</p>
+<p>19:10 ~ Ondea = DJ </p>
+<p>19:50 ~ ionne = DJ </p>
+<p>20:30 ~ XSG1RL = DJ </p>
+<p>21:10 ~ 기나이직 = Live </p>
+<p><a href="https://www.instagram.com/p/DPyCN_OEqvC/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer">↗ 더보기</a></p>
 
+<br></br>
+<br></br>    
 
-<p>chedpahc</p>
+<p class="name">chedpahc</p>
 <p>전선과 코드를 엮어 디지털 사운드와 그래픽, 커스텀 하드웨어를 만든다.</p>
-<p><a href="https://www.chedpahc.com">웹사이트</a></p>
+<p><a href="https://www.chedpahc.com" target="_blank" rel="noopener noreferrer">↗ 웹사이트</a></p>
 
-<p>Guinneissik</p>
-<p>빠르고 가득 찬, 때로는 서정적이고 발칙한 사운드의 일렉트로닉 음악을 만든다. 근래에는 공연 도중에 10m USB 케이블과 마이크를 들고 무대를 뛰쳐나가기도 한다.</p>
-<p><a href="https://www.instagram.com/guinneissik">인스타그램</a></p>
+<br></br>
+<p class="name">Guinneissik</p>
+<p>빠르고 가득 찬, 때로는 서정적이고 발칙한 사운드의 일렉트로닉 음악을 만든다...</p>
+<p><a href="https://www.chedpahc.com" target="_blank" rel="noopener noreferrer">↗ 웹사이트</a></p>
 
-<p class="name">박찬영<br>짧은 소개 3<br><a href="https://www.google.com/">관련</a></p>
-<p>runghwa<br>짧은 소개 4</p>
-<p>장민규<br>짧은 소개 5</p>
-<p>G-UHONG<br>짧은 소개 6</p>
-<p>XSGIRL<br>짧은 소개 7</p>
-<p>Dillon Bastan<br>짧은 소개 8</p>
-<p>김수장<br>짧은 소개 9</p>
-<p>이상수<br>짧은 소개 10</p>
-<p>Ondea<br>짧은 소개 11</p>
-<p>ionne<br>짧은 소개 12</p>
-<p>melies<br>짧은 소개 13</p>
+<br></br>
+<p class="name">박찬영</p>
+<p><a href="https://www.instagram.com/usb5.1/" target="_blank" rel="noopener noreferrer">↗ 인스타그램 </a></p>
+<p><a href="https://soundcloud.com/usb999" target="_blank" rel="noopener noreferrer">↗ 사운드클라우드 </a></p>
 
-<p>TPYsystem<br>아트 디렉션, 설치와 제작<br><a href="https://www.instagram.com/tpy_system">인스타그램</a></p>
-<p>임강민<br>커버 아트, 그래픽 디자인, 프로젝션 참여<br><a href="https://www.instagram.com/yimkangmin">인스타그램</a></p>
+<br></br>
+<p class="name">릉화</p>
+<p>릉화는 비종교적 명상을 주체로 트랜스 상태에 이끄는 감상형 전자음악을 지향하며 만든다. 그리고 그러한 사람들이 모이고 교류하는 화이트 큐브 갤러리, 공연장인 VIRA(비라)를 운영 중이다.</p>
+<p><a href="https://www.instagram.com/rrrrrunghwa/" target="_blank" rel="noopener noreferrer">↗ 인스타그램</a></p>
+<p><a href="https://www.instagram.com/viraism.utopia/" target="_blank" rel="noopener noreferrer">↗ VIRA </a></p>
+<p><a href="https://www.youtube.com/@rrrrrunghwa" target="_blank" rel="noopener noreferrer">↗ 유투브 </a></p>
 
-<hr>
+<br></br>
+<p class="name">장민규</p>
+<p>베이스 기타와 전자 악기를 중심으로 자유 즉흥 연주를 펼치는 연주자이다.</p>
+<p><a href="https://www.instagram.com/70floppylamp" target="_blank" rel="noopener noreferrer">↗ 인스타그램</a></p>
 
-<p>Listen LATE on;</p>
-<p><a href="https://example.com/link1">Bandcamp</a> | <a href="https://example.com/link2">Streaming</a></p>
+<br></br>
+<p class="name">G|UHONG</p>
+<p>짧은 소개 3<a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">관련</a></p>
 
-<hr>
+<br></br>
+<p class="name">XSG1RL</p>
+<p>짧은 소개 3<a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">관련</a></p>
 
-<p>TRACKLIST</p>
+<br></br>
+<p class="name">Dillon Bastan</p>
+<p>짧은 소개 3<a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">관련</a></p>
+
+<br></br>
+<p class="name">김수장</p>
+<p>(Kim Sujang)</p>
+
+<br></br>
+<p class="name">Ondea</p>
+<p>무의식을 부유하는 잡념의 벽돌들로 세워진 그만의 성. 경이로움과 불안감이 공존하는 미로같은 공간 속, 그가 만들어낸 소리들만이 유일한 출구를 속삭여줍니다.</p>
+<p><a href="https://linktr.ee/ondeasangnam" target="_blank" rel="noopener noreferrer">↗ 링크트리</a></p>
+
+<br></br>
+<p class="name">ionne</p>
+<p>전자음악과 영상예술/ 하드코어, D&B, breakcore, 그리고 엠비언트등 스펙트럼을 넘나드는 포괄적인 디제잉까지, 경계없는 행보를 보이고있는 ionne 은 서울을 기반으로 활동중이다.</p>
+<p><a href="www.instagram.com/shortsmokes " target="_blank" rel="noopener noreferrer">↗ 인스타그램</a></p>
+
+<br></br>
+<p class="name">고은지</p>
+<p>짧은 소개 3<a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">관련</a></p>
+
+
+<br></br>
+<p class="bfname">? LATE를 온라인에서 찾아보세요</p>
+<p class="name"><a href="https://example.com/link1">↗ 밴드캠프</a> \ <a href="https://i.namu.wiki/i/b_NCm0VQu5e_A_CMjITYLometHUIkLFfZ2lSmzrMsWTtq5F9d3KtCFKvxcWBpjw2HK8GOT7CR4YqJQoC1c4U5xdUxIJ8DsF61IJW3WOFtFt15ZtECvYVWWGso1UsIDHBTbbqzli-NGsqiBj5AF2AMQ.webp">↗ 스트리밍</a></p>
+<br></br>
+
+
+<br></br>
+<p class="name">TRACKLIST</p>
 <p>01_PROPAGATE / chedpahc<br>
 02_LATE / chedpahc<br>
 03_SUPERLATE / chedpahc, Guinneissik<br>
@@ -116,14 +199,36 @@ img {
 18_RATE - IONNE Remix / chedpahc, IONNE<br>
 19_FATE - Ko Eunji Remix / chedpahc, Ko Eunji<br>
 19 tracks, 56 min
-</p>
 
-<hr>
-
+<br></br>
+<br></br>
+<br></br>
 <p>발이 먼저, 발이 먼저, 발先行—표지판이 박자에 귀를 꿰고 박자에 의해 도망감, 따닥따닥토스톡토스톡, 혀끝이 자일리톨을 자가갱신(SELF-REFRESH)하며 ERR_CHEW_404 자주 재시도, 파일 씹음→파일이 나를 씹음→씹음의 회로, 드론아기=주소창/소포=요일(수신확인) TRANSIT::SKIP→0.1초마다 환승, 환승이 충돌을 낳고 충돌이 즉시 도약으로 팔린다 충돌→도약(루프) 루프의 잔해가 박자화 되고 박자는 미리 도착한 타인을 생성한다 타인은 잔고(계정 잔액)로 환산되어 춤춘다 잔고잔고잔고—춤 춤 춤, 자일리톨 폭발—과거溶解→휘핑크림降雨 토스트折畳(폴드) 지도가 빵으로 접힘 BUFFER::OVER 초공간 준비 완료라는 무전이 내 심장 뱅킹을 오버플로우 시킴, 우리는 늦음(late) 연습을 함 늦음은 의식적 루틴, 지각훈련은 문을 연다(門→開) 13손(十三手)이 붙박여 트랙을 예약, 트랙은 폭발을 예비 폭주 샘플들 서로를 샘플링→자기복제→소화(먹는다먹는다먹는다) AUTO-SAMPLE 재귀, 재귀, 재귀 리스닝파티는 이미 텅 비었고 관객은 잔상에서 토스트를 훔쳐먹음(도둑질은 공연의 행위로 승격) UPLOAD::TASTE 맛이 전송되고 맛은 기록을 갱신하며 나는 도약법을 수신한다 도약 precedes 문장(도약>문장) 도약의 잔상이 기록을 남기고 그 기록은 나를 소거(存→消) 저장→삭제→전송 사이클이 반복되며 늦음은 증폭된다 늦음늦음늦음—표지판은 박자연주, 따닥따닥은 좌표 재설정, 토스톡토스톡은 좌표 붕괴 신호 토스트 굽힘=좌표 변화 좌표붕괴→무효영역 개방→먹힘(被食) 먹힘=공연=기록 기록이 재설계되며 재설계는 다시 재귀적 가속을 낳음 가속→충돌→도약→증폭(증폭은 스스로를 모사) 빛(자일리톨 반사)이 통과하고 통과가 속도로 전환되고 속도는 경계(BOUNDARY) 해제 ERROR_VELOCITY_UNDEFINED 경계 없음 경계 없음 경계 없음 초공간 틈새에 손가락이 밀려들어가 키를 마구 입력한다(입력입력입력) 도약의 잔상은 프레임보다 빨라서 나는 잔상이 되어 저장된다 저장되는 동안 삭제되고 삭제되는 동안 전송되며 전송되며 늦음은 곧 출발 늦음은 곧 지속 늦음은 곧 가속 늦음→가속→파괴→재시동, 반복어들이 신경을 긁고 긁고 긁고 따닥따닥토스톡—이제 구조가 스스로를 발성한다 스스로를 쪼개고 스스로를 붙이고 스스로를 던지고 스스로를 다시 붙인다 도약이 끝나지 않음, 도약이 시작되지도 않음, 우리는 이미 수차례 끝나고 시작하며 그 사이를 토스트와 자일리톨로 메우고 아기는 드론 아래에서 웃고 웃음은 스피커로 복제되어 박자가 되어 박자는 다시 내 몸을 재구성한다 재구성→해체→재구성, 끝없이 가속하는 파편의 합창—끝나지 않는 파편, 끝나지 않는 늦음, 끝나지 않는 맛, 끝나지 않는—도약.</p>
+<p>(text by hakju)</p>
 
-<hr>
+<br></br>
+<br></br>
+<br></br>
+<p>LATE web info by chedpahc. 2025</p>
+</section>
 
-<p>LATE web info by chedpahc. 2025 all rights reserved.</p>
+<script>
+  const wrap = document.getElementById('wrap');
+
+  // 마우스 휠을 가로 스크롤로 전환
+  wrap.addEventListener('wheel', function(e){
+    // 수직 휠 동작이 있을 때만 가로 이동
+    if (Math.abs(e.deltaY) === 0) return;
+    e.preventDefault();
+    // 속도 조절: 필요하면 곱셈값 변경
+    wrap.scrollLeft += e.deltaY * 3 ;
+  }, { passive: false });
+
+  // 선택: 키보드 화살표로도 이동하게
+  window.addEventListener('keydown', (e)=>{
+    if (e.key === 'ArrowRight') wrap.scrollLeft += window.innerWidth;
+    if (e.key === 'ArrowLeft')  wrap.scrollLeft -= window.innerWidth;
+  });
+</script>
 </body>
 </html>
