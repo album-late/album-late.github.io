@@ -19,8 +19,8 @@ body {
   font-variant-numeric: tabular-nums; /* 숫자 폭 통일 */
   font-size: .9rem;
   font-weight: 600;
-  letter-spacing:0.12rem;
-  line-height: 3.8ch;
+  letter-spacing:0.11rem;
+  line-height: 3.6ch;
 
   height: 100dvh;
   word-break: break-all;
@@ -114,8 +114,9 @@ img {
   }
 
   .sectionimg img{
-    max-width:80vw;
-    max-height:80dvh;
+    max-width:77vw;
+    max-height:77dvh;
+    transform: translateX(10px) translateY(-13px) rotate(-3.5deg);
   }
     
 }
@@ -161,8 +162,11 @@ img {
 <p>21:30 | XSG1RL</p>
 <p>22:20 | 기나이직</p>
 <p>비디오설치 | 박명운</p>
-<p>미술설치 | 태평양시스템/김학주</p>
 <p>프로젝션 | 임강민</p>
+<p>제작/설치 | 태평양시스템</p>
+<br>
+<p>기획 | 김학주+chedpahc</p>
+<p>협찬 | WeSA</p>
 <p><a href="https://www.instagram.com/p/DPyCN_OEqvC/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noopener noreferrer">↗ 이벤트 정보</a></p>
 
 <br></br>    
@@ -240,6 +244,13 @@ img {
 
 <br></br>
 <br></br>
+<p class="name">김학주/태평양시스템</p>
+<p>광범위한 창작 분야의 시각적 결과물을 상상/구현한다. </p>
+<p><a href="https://www.instagram.com/gyenzadoff/" target="_blank" rel="noopener noreferrer">↗ 인스타그램</a></p>
+<p><a href="https://www.instagram.com/tpy_system/" target="_blank" rel="noopener noreferrer">↗ 태평양시스템 </a></p>
+
+<br></br>
+<br></br>
 <p class="name">박명운</p>
 <p><a href="https://www.instagram.com/unparkk/" target="_blank" rel="noopener noreferrer">↗ 인스타그램</a></p>
 
@@ -249,10 +260,6 @@ img {
 <p>디지털 그래픽으로 비주얼을 제작한다. 범용성과 확장성을 바탕으로 유연한 협업이 가능한 시스템을 지향하며, 프로그래밍을 활용한 미디어 아트를 탐구한다.</p>
 <p><a href="https://www.instagram.com/yimkangmin/" target="_blank" rel="noopener noreferrer">↗ 인스타그램</a></p>
 
-<br></br>
-<br></br>
-<p class="name">태평양시스템/김학주</p>
-<p><a href="https://www.instagram.com/tpy_system/" target="_blank" rel="noopener noreferrer">↗ 인스타그램</a></p>
 
 <br></br>
 <br></br>
@@ -318,9 +325,9 @@ wrap.style.willChange = 'scroll-left';
 
 let velocity = 0;
 let ticking = false;
-const friction = 0.91;        // 감쇠율(작을수록 빨리 멈춤)
-const speedMultiplier = 0.09;  // 휠 입력 민감도
-const touchVerticalFactor = 0.3; // 터치 수직->수평 변환 민감도
+const friction = 0.92;        // 감쇠율(작을수록 빨리 멈춤)
+const speedMultiplier = 0.1;  // 휠 입력 민감도
+const touchVerticalFactor = 0.22; // 터치 수직->수평 변환 민감도
 const bgParallaxFactor = 0.9; // 배경 이동 비율 (조절)
 
 // 이미지 백그라운드용 변수
@@ -355,14 +362,12 @@ function updateBgContrast(){
 
   const centerFactor = easeInOutCubic(1 - d);
 
-  const strength = 0.25;
+  const strength = 0.27;
   const contrast = (1 - centerFactor * strength).toFixed(3);
   const blurPx = (centerFactor * 1).toFixed(2);
 
   bgEl.style.filter = `contrast(${contrast}) blur(${blurPx}px)`;
 }
-
-
 
 if (bgIsImg && bgEl) {
   if (bgEl.complete) updateImgSize();
